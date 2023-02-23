@@ -1,7 +1,12 @@
 import "./App.css";
+import GetIp from "./Components/GetIp";
 
 function App() {
-  return <div className="App">Hello from Weather App</div>;
+  return (
+    <div className="App">
+      <GetIp />
+    </div>
+  );
 }
 
 export default App;
