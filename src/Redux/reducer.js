@@ -1,9 +1,12 @@
-const INTL_STATE = { ip: "", cities: ["kolhapur", "pune"] };
+const INTL_STATE = {
+  currentCity: "",
+  cities: ["kolhapur", "pune"],
+};
 
 export const reducer = (state = INTL_STATE, action) => {
   switch (action.type) {
-    case "SETIP":
-      return { ...state, ip: action.payload };
+    case "SETLOCATION":
+      return { ...state, currentCity: action.payload };
 
     default:
       return state;

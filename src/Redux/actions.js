@@ -1,6 +1,6 @@
-export const SETIP = (ip) => {
+export const SETLOCATION = (location) => {
   return {
-    type: "SETIP",
-    payload: ip,
+    type: "SETLOCATION",
+    payload: location,
   };
 };

@@ -1,10 +1,11 @@
 import "./App.css";
-import GetIp from "./Components/GetIp";
-
+import GetCity from "./Components/GetCity";
+import Weather from "./Components/Weather";
 function App() {
   return (
     <div className="App">
-      <GetIp />
+      {/* <GetCity /> */}
+      <Weather />
     </div>
   );
 }
