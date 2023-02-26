@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 import { BOOKMARKS } from "../Redux/actions";
+import { useLocation } from "react-router-dom";
 const Weather = (props) => {
-  // console.log(`PropData: ${props.city}`);
   const [apiData, setApiData] = useState({});
   const [bookmark, setBookmark] = useState([]);
 
@@ -11,6 +13,7 @@ const Weather = (props) => {
   const dispatch = useDispatch();
   const apiKey = process.env.REACT_APP_API_KEY;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&units=metric&appid=${apiKey}`;
+  const location = useLocation();
 
   useEffect(() => {
     axios
@@ -53,12 +56,20 @@ const Weather = (props) => {
             </p>
           </div>
           <p>Temp: {apiData.main.temp} </p>
-          <button onClick={() => saveToBook(apiData.name)}>
-            Add To Bookmark
-          </button>
+
+          {location.pathname == "/" && (
+            <button
+              className="px-3 py-2 bg-cyan-400 rounded-lg"
+              onClick={() => saveToBook(apiData.name)}
+            >
+              Add To Bookmark
+            </button>
+          )}
         </div>
       ) : (
-        <h1>Still Loading</h1>
+        <Box sx={{ display: "flex" }} className="flex justify-center">
+          <CircularProgress />
+        </Box>
       )}
     </div>
   );

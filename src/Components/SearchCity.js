@@ -3,8 +3,6 @@ import React, { useState } from "react";
 const SearchCity = (props) => {
   const [city, setCity] = useState("");
 
-  const bookmark = () => {};
-
   const formSubmit = (e) => {
     e.preventDefault();
     props.onSubmitCity(city);
