@@ -4,16 +4,20 @@ import { useSelector } from "react-redux";
 const Bookmarks = (props) => {
   const city = useSelector((state) => state.bookmarks);
   console.log(props.book);
-  return city.length > 1 ? (
-    <div>
-      {city.map((data) => (
-        <p>
-          <Weather city={data} />
-        </p>
-      ))}
+  return (
+    <div className="flex h-screen m-4 flex-wrap basis-full justify-center ">
+      <div className="flex flex-wrap">
+        {city.length > 0 ? (
+          <div className="flex gap-4 min-w-max">
+            {city.map((data) => (
+              <Weather city={data} />
+            ))}
+          </div>
+        ) : (
+          <div>No Data Found</div>
+        )}
+      </div>
     </div>
-  ) : (
-    <div>No Data Found</div>
   );
 };
 
