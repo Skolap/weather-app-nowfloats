@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { useSelector, useDispatch } from "react-redux";
+import { BOOKMARKS } from "../Redux/actions";
 const Weather = (props) => {
   // console.log(`PropData: ${props.city}`);
   const [apiData, setApiData] = useState({});
   const [bookmark, setBookmark] = useState([]);
 
+  const book = useSelector((state) => state.bookmarks);
+  const dispatch = useDispatch();
   const apiKey = process.env.REACT_APP_API_KEY;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&units=metric&appid=${apiKey}`;
 
@@ -24,13 +27,16 @@ const Weather = (props) => {
   // console.log(apiData.name);
 
   const saveToBook = (e) => {
-    // console.log(`E${e}`);
+    dispatch(BOOKMARKS(e));
+    console.log(`PAYLOAD: ${e}`);
+
     const data = [...bookmark, e];
 
     setBookmark(data);
 
-    props.getBookmarks(bookmark);
+    // props.getBookmarks(bookmark);
   };
+  console.log(book);
 
   return (
     <div className="mx-auto text-center my-4 bg-slate-400 p-4 w-full">

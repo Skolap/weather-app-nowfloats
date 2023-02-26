@@ -1,11 +1,12 @@
 import React from "react";
 import Weather from "./Weather";
-
+import { useSelector } from "react-redux";
 const Bookmarks = (props) => {
+  const city = useSelector((state) => state.bookmarks);
   console.log(props.book);
-  return props.book.length > 1 ? (
+  return city.length > 1 ? (
     <div>
-      {props.book.map((data) => (
+      {city.map((data) => (
         <p>
           <Weather city={data} />
         </p>

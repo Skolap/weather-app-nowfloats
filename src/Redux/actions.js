@@ -1,6 +1,6 @@
-export const SETLOCATION = (location) => {
+export const BOOKMARKS = (e) => {
   return {
-    type: "SETLOCATION",
-    payload: location,
+    type: "BOOKMARKS",
+    payload: e,
   };
 };
