@@ -1,4 +1,4 @@
-# Expense Tracking App
+# WEATHER APP
 
 This is weather app built using Reactjs, a JavaScript front end library for building user interfaces.
 
